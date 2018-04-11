@@ -14,8 +14,6 @@ var useMinPerHour = new Array();
 
 function quadraticCurve(x1, y1, x2, y2, x3, y3, lineWidth, r, g, b, a) {
 	var canvas = document.getElementById('defaultCanvas0');
-	// canvas.style.width = "682px";
-	// canvas.style.height = "512px";
 	var context = canvas.getContext('2d');
 
 	context.beginPath();
@@ -44,7 +42,6 @@ function drawClockFace(tmpCx, tmpCy){
 		var radius = radians(i * tickDistance) - HALF_PI - radians(tickDistance * 12);
 		if (i < 24) { //hour ticks
 			noFill();
-			//stroke(242, 102, 102);
 			stroke(255, 131, 21);
 			strokeWeight(2);
 			if ((i + 1) % 4 == 0) {
@@ -54,7 +51,6 @@ function drawClockFace(tmpCx, tmpCy){
 			}
 		} else if (i >= 24 && i < 84) {//minutes
 			noFill();
-			//stroke(245, 238, 122);
 			stroke(122, 198, 248);
 			strokeWeight(2);
 			if ((i + 1) % 5 == 0) {
@@ -77,18 +73,6 @@ function drawClockFace(tmpCx, tmpCy){
 	fill(255);
 	ellipse(tmpCx, tmpCy, 2 * r);
 }
-
-// function drawTimeCurves(tmpCx, tmpCy){
-// 	var s = radians(second() * tickDistance) + HALF_PI;
-// 	var m = radians(minute() * tickDistance) - HALF_PI + radians(tickDistance * 12);
-// 	var h = radians((hour() - 1) * tickDistance) - HALF_PI - radians(tickDistance * 12);
-// 	fill(0);
-// 	stroke(0);
-// 	strokeWeight(5);
-
-// 	quadraticCurve(cos(m) * r + tmpCx, sin(m) * r + tmpCy, tmpCx, tmpCy, cos(s) * r + tmpCx, sin(s) * r + tmpCy, 2, "#d2ed96");
-// 	quadraticCurve(cos(m) * r + tmpCx, sin(m) * r + tmpCy, tmpCx, tmpCy, cos(h) * r + tmpCx, sin(h) * r + tmpCy, 2, "#d2ed96");
-// }
 
 function drawHMCurves(tmpCx, tmpCy, m, h, occupy){
 	fill(0);
@@ -330,23 +314,6 @@ function draw() {
 				break;
 		}
 	}
-	
-  	
-
-  	
-	//write axies names
-	// fill(100);
-	// textSize(20);
-	// text("H", cx - 10, cy - r - 60);
-	// text("S", cx - r - 60, cy + r * 2 / 3);
-	// text("M", cx + r + 50, cy + r * 2 / 3);
-
-	//draw time curves
-	// drawTimeCurves(cx1, cy1);
-	// drawTimeCurves(cx2, cy2);
-	// drawTimeCurves(cx3, cy3);
-	// drawTimeCurves(cx4, cy4);
-	
 
 	//draw previous days
 	for(let i = 0; i < day; i++){
